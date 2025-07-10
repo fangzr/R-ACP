@@ -323,8 +323,8 @@ Our R-ACP framework has been validated on a real hardware testbed consisting of 
 <img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Hardware.png" alt="Hardware validation platform with UGV and edge server nodes." width="80%">
 
 **Hardware Configuration:**
-- **3× UGV Platforms**: Each equipped with Jetson Orin NX 8G computing units and RGB cameras for local feature encoding
-- **1× Edge Server Node**: Powered by the latest Jetson Orin NX Super 16G for feature aggregation and collaborative perception
+- **Multiple UGV Platforms**: Each equipped with Jetson Orin NX 8G computing units and RGB cameras for local feature encoding
+- **1× Edge Server Node**: Powered by the latest Jetson Orin NX Super 16G and Raspberry Pi 5 16GB for feature aggregation and collaborative perception
 - **Wi-Fi Communication**: Wireless feature streaming between UGV nodes and edge server
 - **Real-time Processing**: Supports real-time collaborative perception with hardware-accelerated inference
 
