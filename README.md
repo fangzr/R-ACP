@@ -353,7 +353,8 @@ Please find our related work about collaborative perception:
   volume={23},
   number={12},
   pages={15003-15018},
-    publisher={IEEE}
+  publisher={IEEE}
+}
 ```
 
 ## Acknowledgement
