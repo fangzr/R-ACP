@@ -316,6 +316,22 @@ python main_coding_and_inference.py --batch_size 1 [other args]
 
 ---
 
+## Hardware Platform
+
+Our R-ACP framework has been validated on a real hardware testbed consisting of multiple UGVs and an edge server node:
+
+<img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Hardware.png" alt="Hardware validation platform with UGV and edge server nodes." width="80%">
+
+**Hardware Configuration:**
+- **3× UGV Platforms**: Each equipped with Jetson Orin NX 8G computing units and RGB cameras for local feature encoding
+- **1× Edge Server Node**: Powered by the latest Jetson Orin NX Super 16G for feature aggregation and collaborative perception
+- **Wi-Fi Communication**: Wireless feature streaming between UGV nodes and edge server
+- **Real-time Processing**: Supports real-time collaborative perception with hardware-accelerated inference
+
+This physical implementation demonstrates the practical feasibility of R-ACP in real-world scenarios, validating our theoretical framework under actual communication constraints and computational limitations.
+
+---
+
 ## Citation
 
 If you use this code in your research, please cite:
