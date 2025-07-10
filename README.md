@@ -13,7 +13,41 @@ In collaborative perception systems, multiple unmanned ground vehicles (UGVs) eq
 <img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Challenges.png" alt="Effect of unpredictable accidents involving UGVs on camera extrinsic parameters and perception error rates." width="55%">
 
 Figure 1 illustrates how unpredictable accidents involving UGVs impact extrinsic calibration parameters, significantly increasing perception errors.
+---
 
+## Key Features
+
+### 1. Channel-Aware Self-Calibration
+- **Re-ID Based Feature Matching**: Uses pedestrian re-identification for robust key-point matching
+- **Adaptive Quantization**: Adjusts feature precision based on channel quality
+- **Real-time Calibration**: No need for calibration targets or manual intervention
+
+### 2. Information Bottleneck Compression
+- **Task-Oriented Encoding**: Compresses features while preserving task-relevant information
+- **Temporal Correlation**: Leverages frame-to-frame correlations to reduce redundancy
+- **Dynamic Rate Adjustment**: Adapts compression rates based on channel conditions
+
+### 3. Priority-Aware Robust Fusion
+- **Dynamic Packet Loss Handling**: Maintains performance under severe packet loss (up to 40%)
+- **Feature Prioritization**: Assigns importance scores to different camera features
+- **Adaptive Masking**: Selectively drops less important features during transmission
+
+---
+
+## System Model
+
+<img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/system_model.png" alt="Collaborative perception system model." width="80%">
+
+The system consists of multiple UGVs equipped with edge cameras that collaboratively track pedestrians, transmitting decoded feature streams to an edge server through wireless channels for comprehensive occupancy mapping and real-time calibration.
+
+---
+
+## Performance Metrics
+
+- **MODA (Multiple Object Detection Accuracy)**: Primary perception accuracy metric
+- **Communication Cost**: Measured in KB, representing transmission overhead
+- **AoPT (Age of Perceived Targets)**: Novel metric combining data freshness and target relevance
+- **Calibration Error**: Rotation and translation errors in camera extrinsic parameters
 ---
 
 ## Code Architecture
@@ -101,7 +135,7 @@ pip install torchreid ultralytics scipy
 
 ## Dataset Preparation
 
-Download the Wildtrack dataset and organize it as follows:
+Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in an urban environment, recording natural pedestrian trajectories \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\]. Download the Wildtrack dataset and organize it as follows:
 
 ```
 /Data/Wildtrack/
@@ -262,52 +296,10 @@ Epoch: 15, Reading CSV for test parameters...
 Applied translation error 0.05 and rotation error 0.02 to cameras [1, 3]
 ```
 
----
 
-## Key Features
-
-### 1. Channel-Aware Self-Calibration
-- **Re-ID Based Feature Matching**: Uses pedestrian re-identification for robust key-point matching
-- **Adaptive Quantization**: Adjusts feature precision based on channel quality
-- **Real-time Calibration**: No need for calibration targets or manual intervention
-
-### 2. Information Bottleneck Compression
-- **Task-Oriented Encoding**: Compresses features while preserving task-relevant information
-- **Temporal Correlation**: Leverages frame-to-frame correlations to reduce redundancy
-- **Dynamic Rate Adjustment**: Adapts compression rates based on channel conditions
-
-### 3. Priority-Aware Robust Fusion
-- **Dynamic Packet Loss Handling**: Maintains performance under severe packet loss (up to 40%)
-- **Feature Prioritization**: Assigns importance scores to different camera features
-- **Adaptive Masking**: Selectively drops less important features during transmission
 
 ---
 
-## System Model
-
-<img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/system_model.png" alt="Collaborative perception system model." width="80%">
-
-The system consists of multiple UGVs equipped with edge cameras that collaboratively track pedestrians, transmitting decoded feature streams to an edge server through wireless channels for comprehensive occupancy mapping and real-time calibration.
-
----
-
-## Performance Metrics
-
-- **MODA (Multiple Object Detection Accuracy)**: Primary perception accuracy metric
-- **Communication Cost**: Measured in KB, representing transmission overhead
-- **AoPT (Age of Perceived Targets)**: Novel metric combining data freshness and target relevance
-- **Calibration Error**: Rotation and translation errors in camera extrinsic parameters
-
----
-
-## Troubleshooting
-
-### Common Issues
-
-1. **CUDA Out of Memory**: Reduce batch size or use single GPU
-2. **Dataset Path Error**: Ensure Wildtrack dataset is properly organized
-3. **Model Loading Error**: Check if pre-trained model path exists
-4. **Calibration CSV Missing**: Create the calibration error CSV file for testing phase
 
 ### GPU Memory Optimization
 
