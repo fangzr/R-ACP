@@ -318,7 +318,7 @@ python main_coding_and_inference.py --batch_size 1 [other args]
 
 ## Hardware Platform
 
-Our R-ACP framework has been validated on a real hardware testbed consisting of multiple UGVs and an edge server node:
+Our R-ACP framework has been validated on a real hardware testbed consisting of multiple UGVs and edge devices:
 
 <img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Hardware.png" alt="Hardware validation platform with UGV and edge server nodes." width="80%">
 
