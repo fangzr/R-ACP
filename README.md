@@ -13,6 +13,7 @@ In collaborative perception systems, multiple unmanned ground vehicles (UGVs) eq
 <img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Challenges.png" alt="Effect of unpredictable accidents involving UGVs on camera extrinsic parameters and perception error rates." width="55%">
 
 Figure 1 illustrates how unpredictable accidents involving UGVs impact extrinsic calibration parameters, significantly increasing perception errors.
+
 ---
 
 ## Key Features
